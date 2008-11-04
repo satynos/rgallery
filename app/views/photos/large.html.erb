@@ -1,3 +1,0 @@
-<h1><%= @photo.title %> <% if @photo.gallery %> in <%= link_to @photo.gallery.name, @photo.gallery %><% end %></h1>
-<%= link_to "Medium", @photo %><br />
-<%= image_tag @photo.file.url(:large) %>

@@ -1,0 +1,5 @@
+<h1><%= t(:new_photo) %><% if @gallery %> for <%= @gallery.name %><% end %></h1>
+<% form_for @gallery.nil? ? @photo : [@gallery, @photo], :html => { :multipart => true } do |f| %>
+  <%= render :partial => "form", :locals => { :f => f } %>
+  <%= submit_tag t(:Create) %>
+<% end %>

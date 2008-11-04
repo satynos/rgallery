@@ -1,0 +1,14 @@
+<h1>Your Galleries</h1>
+<%= link_to t(:New_gallery), new_gallery_path %><br />
+<table cellspacing='10' cellpadding='0' width='100%'>
+  <% unless @galleries.empty? %>
+    <% x = 0 %>
+    <% for gallery in @galleries %>
+      <td><%= gallery.primary_photo.file.url(:thumb) %></td>
+      <% x += 1 %>
+      <%= "</tr><tr>" if x % 5 == 0 %>
+    <% end %>
+  <% else %>
+    <%= t(:no_galleries) %>
+  <% end %>
+</table>

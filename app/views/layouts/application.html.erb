@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <%= stylesheet_link_tag 'style' %>
+  </head>
+  
+  <body>
+    <div id='menu'>
+      <% if logged_in? %>
+        <%= link_to t(:My_galleries), galleries_path %> |
+        <%= link_to t(:My_photos), photos_path %>
+      <% else %>
+        <%= link_to t(:Login), login_path %> |
+        <%= link_to t(:Register), signup_path %>
+      <% end %>
+    </div>
+    <%= yield %>
+  </body>
+</html>

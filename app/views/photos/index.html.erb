@@ -1,0 +1,21 @@
+<% if @gallery.nil? %>
+  <h1><%= t(:Last_5) %></h1>
+<% else %>
+  <h1><%= t(:Photos_for) %> <%= @gallery.name %></h1>
+<% end %>
+
+<%= link_to "New Photo", new_gallery_photo_path(@gallery) %><br />
+<table cellspacing='10' cellpadding='0' width='100%'>
+  <tr>
+    <% unless @photos.empty? %>
+      <% x = 0 %>
+      <% for photo in @photos %>
+        <td><%= link_to image_tag(photo.file.url(:thumb)), @gallery.nil? ? [photo] : [@gallery, photo] %></td>
+        <% x += 1 %>
+        <%= "</tr><tr>" if x % 5 == 0 %>
+      <% end %>
+    <% else %>
+      <%= t(:no_photos) %>
+    <% end %>
+  </tr>
+</table>

@@ -1,0 +1,5 @@
+<h1><%= t(:New_gallery) %></h1>
+<% form_for @gallery do |f| %>
+  <%= render :partial => "form", :locals => { :f => f } %>
+  <%= submit_tag t(:Create) %>
+<% end %>

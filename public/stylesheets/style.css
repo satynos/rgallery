@@ -1,3 +1,7 @@
 #menu {
   float:right;
 }
+div {
+  display:block;
+  float:right;
+}

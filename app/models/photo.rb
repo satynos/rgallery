@@ -8,7 +8,7 @@ class Photo < ActiveRecord::Base
                     :styles => { 
                                  :large => "1024x768>",
                                  :medium => "500x500>",
-                                 :thumb => "100x100>" }
+                                 :thumbnail => "100x100>" }
   def to_param
     "#{id}-#{title.parameterize}"
   end

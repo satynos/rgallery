@@ -1,5 +1,3 @@
-<h1><%= t(:Editing_gallery) %>: <%= @gallery.name %></h1>
-<% form_for @gallery do |f| %>
-  <%= render :partial => "form", :locals => { :f => f } %>
-  <%= submit_tag t(:Update) %>
+<% remote_form_for @gallery, :update => "gallery_name_box" do |f| %>
+  <%= f.text_field "name" %>
 <% end %>

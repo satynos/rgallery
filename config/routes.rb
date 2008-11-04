@@ -7,14 +7,14 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :users do |user|
     user.resources :galleries
-    user.resources :photos
+    user.resources :photos, :member => { :large => :get, :original => :get, :thumbnail => :get }
   end
   
   map.resources :galleries do |gallery|
-    gallery.resources :photos, :member => { :large => :get }
+    gallery.resources :photos, :member => { :large => :get, :original => :get, :thumbnail => :get }
   end
   
-  map.resources :photos, :member => { :large => :get }
+  map.resources :photos, :member => { :large => :get, :original => :get, :thumbnail => :get }
   
   map.resource :session
 

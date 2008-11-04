@@ -1,10 +1,9 @@
 <% if @gallery.nil? %>
   <h1><%= t(:Last_5) %></h1>
 <% else %>
-  <h1><%= t(:Photos_for) %> <%= @gallery.name %></h1>
+  <h1><%= t(:Photos_for) %> <span id='gallery_name_box'><%= @gallery.name %></span> </h1>
 <% end %>
-
-<%= link_to "New Photo", new_gallery_photo_path(@gallery) %><br />
+<%= link_to t(:New_photo), new_gallery_photo_path(@gallery) %><br />
 <table cellspacing='10' cellpadding='0' width='100%'>
   <tr>
     <% unless @photos.empty? %>

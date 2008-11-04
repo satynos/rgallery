@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   before_filter :find_gallery
-  before_filter :find_photo, :only => [:show, :edit, :update, :destroy]
+  before_filter :find_photo, :only => [:show, :edit, :update, :destroy, :original, :large, :thumbnail]
   
   def index
     if @gallery.nil?
@@ -51,8 +51,16 @@ class PhotosController < ApplicationController
     flash[:success] = t(:photo_deleted)
   end
   
+  def thumbnail
+    render :action => "show"
+  end
+  
+  def original
+    render :action => "show"
+  end
+  
   def large
-    @photo = Photo.find(params[:id])
+    render :action => "show"
   end
   
   private

@@ -11,6 +11,11 @@ class GalleriesController < ApplicationController
     @gallery = current_user.galleries.build
   end
   
+  def edit
+    @gallery = Gallery.find(params[:id])
+    render :layout => false
+  end
+  
   def create
     @gallery = current_user.galleries.build(params[:gallery])
     if @gallery.save
